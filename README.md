@@ -1,4 +1,4 @@
-# yauh.rundeck
+# yauh.jenkins
 Ansible role for setting up Jenkins Continuous Integration server
 
 ## Requirements
