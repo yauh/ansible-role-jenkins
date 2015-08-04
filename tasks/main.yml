@@ -27,7 +27,7 @@
   service: name=jenkins state=restarted
 
 - name: Wait for Jenkins
-  wait_for: port=8080 delay=10
+  wait_for: port=8080 delay=15
 
 - name: Get Jenkins cli
   get_url: url=http://localhost:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar dest=/tmp/jenkins-cli.jar
