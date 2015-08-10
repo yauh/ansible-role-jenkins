@@ -27,13 +27,13 @@
   service: name=jenkins state=restarted
 
 - name: Wait for Jenkins
-  wait_for: port=8080 delay=15
+  wait_for: port=8080 delay=20
 
 - name: Get Jenkins cli
   get_url: url=http://localhost:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar dest=/tmp/jenkins-cli.jar
 
 - name: Get Jenkins plugins
-  command: java -jar /tmp/jenkins-cli.jar -s http://localhost:{{ jenkins_port }} install-plugin git checkstyle dry htmlpublisher jdepend plot pmd violations xunit
+  command: java -jar /tmp/jenkins-cli.jar -s http://localhost:{{ jenkins_port }} install-plugin ansible git checkstyle dry htmlpublisher jdepend plot pmd violations xunit
 
 - service: name=jenkins state=restarted
 
