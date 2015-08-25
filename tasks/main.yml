@@ -33,7 +33,8 @@
   get_url: url=http://localhost:{{ jenkins_port }}/jnlpJars/jenkins-cli.jar dest=/tmp/jenkins-cli.jar
 
 - name: Get Jenkins plugins
-  command: java -jar /tmp/jenkins-cli.jar -s http://localhost:{{ jenkins_port }} install-plugin ansible git github-oauth checkstyle dry htmlpublisher jdepend plot pmd violations xunit
+  command: java -jar /tmp/jenkins-cli.jar -s http://localhost:{{ jenkins_port }} install-plugin {{ item }}
+  with_items: jenkins_plugins
 
 - service: name=jenkins state=restarted
 
