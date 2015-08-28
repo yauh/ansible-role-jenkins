@@ -6,6 +6,7 @@ jenkins_port: 8080
 jenkins_start_delay: 20 # number of seconds to wait until Jenkins comes up and is ready to serve
 jenkins_plugins:
   - checkstyle
+  - cloudbees-folder
   - credentials
   - credentials-binding
   - dry
